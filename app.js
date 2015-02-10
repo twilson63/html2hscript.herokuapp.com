@@ -10,6 +10,7 @@ var state = app.state({
 });
 
 page('/parse', function(ctx) {
+  state.set('parsed', true);
   state.set('hscript', parser(ctx.body.html));
   page.redirect('/');
 });
@@ -21,7 +22,7 @@ app(document.body, state, render);
 
 function render(state) {
   var h = app.h;
-  return h('div.container', [
+  var container = [
     h('header', [
       h('h1.title', 'HTML2HyperScript')
     ]),
@@ -34,13 +35,16 @@ function render(state) {
           h('button.button.button-primary', ['Convert from HTML to HyperScript'])
         ])
       ])
-    ]),
-    h('.row', [
+    ])
+  ];
+  if (state.get('parsed')) {
+    container.push(h('.row', [
       h('.twelve.columns', [
         h('pre', [
           h('code', state.get('hscript'))
         ])
       ])
-    ])
-  ])
+    ]))
+  }
+  return h('div.container', container);
 }
