@@ -4,7 +4,7 @@
   "description": "Web App that converts html to hyperscript using the html2hyperscript module",
   "main": "server.js",
   "scripts": {
-    "build": "browserify -t brfs app.js | uglifyjs -c > public/bundle.js.gz",
+    "build": "browserify -t brfs app.js | uglifyjs -c > public/bundle.js",
     "watch": "watchify app/index.js -o public/bundle.js",
     "dev": "wzrd app.js -- -t brfs | wtch | garnish",
     "start": "node server",
