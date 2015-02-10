@@ -1,0 +1,27 @@
+{
+  "name": "html2hscript",
+  "version": "1.0.0",
+  "description": "Web App that converts html to hyperscript using the html2hyperscript module",
+  "main": "server.js",
+  "scripts": {
+    "build": "browserify -t brfs app.js | uglifyjs -c > public/bundle.js",
+    "watch": "watchify app/index.js -o public/bundle.js",
+    "dev": "wzrd app.js -- -t brfs | wtch | garnish",
+    "start": "node server",
+    "test": "tap test",
+    "deploy": "git push dojo master"
+  },
+  "author": "Tom",
+  "license": "MIT",
+  "dependencies": {
+    "htmlparser2": "^3.8.2",
+    "insert-css": "^0.2.0",
+    "page": "^1.6.0",
+    "page-body-parser": "^1.0.0",
+    "vbridge": "0.0.1",
+    "harp": "^0.15.0"
+  },
+  "devDependencies": {
+    "brfs": "^1.3.0"
+  }
+}
