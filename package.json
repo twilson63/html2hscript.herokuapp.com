@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "browserify -t brfs app.js | uglifyjs -c > public/bundle.js",
+    "gzip": "cat public/bundle.js | gzip > public/bundle.js.gz",
     "watch": "watchify app/index.js -o public/bundle.js",
     "dev": "wzrd app.js -- -t brfs | wtch | garnish",
     "start": "node server",
@@ -14,9 +15,10 @@
   "author": "Tom",
   "license": "MIT",
   "dependencies": {
-    "harp": "^0.15.0",
+    "ecstatic": "^0.5.8",
     "html2hscript": "^1.0.0",
     "htmlparser2": "^3.8.2",
+    "hyperscript": "^1.4.4",
     "insert-css": "^0.2.0",
     "page": "^1.6.0",
     "page-body-parser": "^1.0.0",
