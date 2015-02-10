@@ -62,6 +62,14 @@ function render(state) {
       ])
     ]))
   }
+  container.push(h('footer.row', [
+    h('.six.columns', [
+      h('a', {href: 'https://github.com/dominictarr/hyperscript'}, ['HyperScript'])
+    ]),
+    h('.six.columns', [
+      h('a', {href: 'https://github.com/Raynos/virtual-hyperscript'}, ['Virtual HyperScript'])
+    ])
+  ]))
   return h('div', [
     h("a", { attributes: {
     "href": "https://github.com/twilson63/html2hscript.herokuapp.com"
