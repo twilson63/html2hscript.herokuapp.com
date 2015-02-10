@@ -8,4 +8,4 @@ var skeleton = fs.readFileSync(__dirname + '/bower_components/skeleton/css/skele
 insertCss(normalize);
 insertCss(skeleton);
 insertCss('.button-bar .button { margin-right: 3px; }');
-insertCss('textarea { height: 140px; }');
+insertCss('textarea { height: 160px; }');
