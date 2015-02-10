@@ -1,7 +1,7 @@
 require('./css');
 
 var app = require('vbridge');
-var parser = require('./parser');
+var parser = require('html2hscript');
 var page = require('page');
 var pageBodyParser = require('page-body-parser');
 
@@ -10,8 +10,10 @@ var state = app.state({
 });
 
 page('/parse', function(ctx) {
-  state.set('parsed', true);
-  state.set('hscript', parser(ctx.body.html));
+  parser(ctx.body.html, function(err, hscript) {
+    state.set('parsed', true);
+    state.set('hscript', hscript);
+  });
   page.redirect('/');
 });
 
