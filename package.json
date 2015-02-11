@@ -15,6 +15,7 @@
   "author": "Tom",
   "license": "MIT",
   "dependencies": {
+    "body": "^5.0.0",
     "ecstatic": "^0.5.8",
     "html2hscript": "^1.0.0",
     "htmlparser2": "^3.8.2",
@@ -22,6 +23,7 @@
     "insert-css": "^0.2.0",
     "page": "^1.6.0",
     "page-body-parser": "^1.0.0",
+    "send-data": "^6.0.0",
     "vbridge": "0.0.1"
   },
   "devDependencies": {
@@ -38,6 +40,14 @@
   ],
   "bugs": {
     "url": "https://github.com/twilson63/html2hscript.herokuapp.com/issues"
+  },
+  "env": {
+    "ecstatic": {
+      "root": "public",
+      "gzip": true,
+      "handleError": false,
+      "showDir": false
+    }
   },
   "homepage": "https://github.com/twilson63/html2hscript.herokuapp.com"
 }

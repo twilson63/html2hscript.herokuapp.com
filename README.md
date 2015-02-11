@@ -2,6 +2,25 @@
 
 hyperscript is a great way to write html in javascript!  This web-site allows you to take html snippets and paste them into a textarea then parse them to hyperscript.  I works great for twitter, facebook and other button widgets, or any other html snippet.
 
+## Api
+
+### POST /parse
+
+``` json
+{
+  "html": "<h1>Hello World</h1>"
+}
+```
+
+Response
+
+``` json
+{
+    "html": "<h1>Beep</h1>",
+    "hscript": "h(\"h1\", [ \"Beep\" ])"
+}
+```
+
 ## Run in Development Mode
 
 ``` js

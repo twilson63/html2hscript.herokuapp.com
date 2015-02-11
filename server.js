@@ -1,21 +1,29 @@
-//require('harp').server(__dirname + '/public', { port: process.env.PORT || 3000 })
+var pkg = require('./package.json');
 var http = require('http');
 var ecstatic = require('ecstatic');
 var h = require('hyperscript');
+var jsonBody = require('body/json');
+var sendJson = require('send-data/json');
+var parser = require('html2hscript');
+
 
 http.createServer(function(req, res) {
-  ecstatic({
-    root: __dirname + '/public',
-    cache: 3600,
-    gzip: true,
-    handleError: false,
-    showDir: false
-  })(req, res, function() {
+  if (req.url === '/parse' && req.method.toUpperCase() === 'POST') {
+    jsonBody(req, res, function(err, body) {
+      parser(body.html, function(err, hscript) {
+        sendJson(req, res, { html: body.html, hscript: hscript});
+      });
+    });
+    return;
+  }
+  //
+  function renderHome() {
     res.writeHead(200, {'content-type': 'text/html'});
     res.end(index());
-  });
-
+  }
+  ecstatic(pkg.env.ecstatic)(req, res, renderHome);
 }).listen(process.env.PORT || 3000);
+
 
 
 function index() {
