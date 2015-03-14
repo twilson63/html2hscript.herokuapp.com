@@ -17,7 +17,7 @@
   "dependencies": {
     "body": "^5.0.0",
     "ecstatic": "^0.5.8",
-    "html2hscript": "^1.0.0",
+    "html2hscript": "^1.0.4",
     "htmlparser2": "^3.8.2",
     "hyperscript": "^1.4.4",
     "insert-css": "^0.2.0",
